@@ -1,6 +1,6 @@
-baseURL = "https://angelacorte.github.io/Rustfields-presentation"
+baseURL = "https://angelacorte.github.io/Rustfields-presentation/"
 languageCode = "en-us"
-title = "Rustfields"
+title = "ScaRLib presentation for LSS course"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"
@@ -19,7 +19,7 @@ unsafe = true
 # choose between Hugo compile-time or Highlight.js
 # syntax highlighting for code inside of code fences
 [markup.highlight]
-#codeFences = false  # use highlight.js 
+#codeFences = false  # use highlight.js
 codeFences = true  # use hugo highlighting at compile time
 style = "tango"  # set a style for hugo highlighting
 
@@ -31,26 +31,26 @@ isHTML = true
 [params.reveal_hugo]
 history = true
 theme = "league"
-highlight_theme = "solarized-dark"
+highlight_theme = "github"
 slide_number = true
 transition = "slide"
 transition_speed = "fast"
 custom_theme = "custom-theme.scss"
 custom_theme_compile = true
-width = '1440'
-height = '900'
+width = '1920'
+height = '1080'
 
 [params.reveal_hugo.custom_theme_options]
 targetPath = "css/custom-theme.css"
 enableSourceMap = true
 
 [[params.reveal_hugo.mermaid]]
-# startOnLoad = false
+startOnLoad = false
 # theme = "default"
 # fontFamily = "Inconsolata"
-# useMaxWidth = false
+useMaxWidth = false
 
 # gitGraph options break the image generation
 # [params.reveal_hugo.mermaid.gitGraph]
-# mainBranchName = 'master'
-# rotateCommitLabel = true
+mainBranchName = 'master'
+rotateCommitLabel = true
