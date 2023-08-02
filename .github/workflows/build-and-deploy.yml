@@ -1,5 +1,4 @@
 name: Build and deploy
-
 on:
   push:
     tags: '*'
@@ -15,17 +14,13 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions: {}
-
 jobs:
   Build-Slides:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       # Checkout the repository
       - name: Checkout
-        uses: danysk/action-checkout@0.2.10
+        uses: danysk/action-checkout@0.2.9
       - name: Compute the version of Hugo
         id: hugo
         shell: bash
@@ -33,12 +28,12 @@ jobs:
           # Idea: the regex matcher of Renovate keeps this string up to date automatically
           # The version is extracted and used to access the correct version of the scripts
           USES=$(cat <<TRICK_RENOVATE
-          - uses: gohugoio/hugo@v0.116.1
+          - uses: gohugoio/hugo@v0.111.3
           TRICK_RENOVATE
           )
           echo "Scripts update line: \"$USES\""
           echo "Computed version: \"${USES#*@v}\""
-          echo "version=${USES#*@v}" >> $GITHUB_OUTPUT
+          echo "::set-output name=version::${USES#*@v}"
       - name: Download Hugo
         run: |
           HUGO_VERSION="${{ steps.hugo.outputs.version }}"
@@ -57,25 +52,16 @@ jobs:
       #   with:
       #     NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
       #     SSH_PASS: ${{ secrets.SSH_PASS }}
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.152.0
-        with:
-          working-directory: shared-slides
-      - name: Run the preprocessor
-        run: shared-slides/preprocess.rb
       - name: Build slides with hugo
         run: hugo
       - name: Transform and Inline Mermaid charts
         uses: cric96/inline-mermaid@v1.8.1
         with:
           css-file-regex: '^css\\/.*custom.*theme.*\\.css$'
-      - name: Get branch name
-        id: branch-name
-        uses: tj-actions/branch-names@v7
       - name: Deploy website
-        if: ${{ github.event_name != 'pull_request' && steps.branch-name.outputs.is_default == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           branch: gh-pages
           folder: build
