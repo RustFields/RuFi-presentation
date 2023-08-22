@@ -48,7 +48,7 @@ The goal of this project is to explore different solutions to make the field cal
 
 # Design
 
-<image src="./images/full-architecture.png" >
+<image src="./images/full-architecture.png" width="200%" height="200%">
 
 ---
 
@@ -88,7 +88,7 @@ Run Tests => Test Release => Release => Success
 # Tools
 
 <image src="./images/cargo.png" >
-<image src="./images/github.png" >
+<image src="./images/github.png" width="30%" height="30%">
 <image src="./images/gradle.png" >
 <image src="./images/mergify.png" >
 <image src="./images/renovate.png" >
