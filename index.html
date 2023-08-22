@@ -2,7 +2,7 @@
 	<meta name="generator" content="Hugo 0.111.3">
     <meta charset="utf-8">
 <title>RustFields</title>
-<meta name="description" content="Extend Scafi project in Rust">
+
 <meta name="author" content="Angela Cortecchia">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -23,27 +23,77 @@
   
 
     <section><h1 id="rustfields">RustFields</h1>
-<h2 id="sub">sub</h2>
 <h4 id="angela-cortecchia---leonardo-micelli---paolo-penazzi---filippo-vissani">Angela Cortecchia - Leonardo Micelli - Paolo Penazzi - Filippo Vissani</h4>
 <p>Laboratory of Software Systems @ University of Bologna</p>
 </section><section>
 <h1 id="introduction">Introduction</h1>
+<p>This project was born from the willingness to extend ScaFi: a Scala-based library and framework for Aggregate Programming.
+The goal of this project is to explore different solutions to make the field calculus available on thin devices.</p>
 </section><section>
-<h1 id="tools">Tools</h1>
+<h1 id="development-process">Development Process</h1>
+<ul>
+<li>Agile Methodology &amp; Domain-Driven Design</li>
+<li>Series of knowledge-crunching sessions to kickstart the design</li>
+<li>Split implementation into weekly sprints</li>
+</ul>
 </section><section>
 <h1 id="domain-analysis-knowledge-crunching">Domain Analysis: knowledge crunching</h1>
+<ul>
+<li>The first knowledge-crunching sessions were about the main project goals:
+<ul>
+<li>bring aggregate computing on thin devices</li>
+<li>port the ScaFi framework in Scala 3</li>
+</ul>
+</li>
+<li>Then we focused on highlighting the fundamental concepts of the domain</li>
+<li>We ended up with a ubiquitous language for the domain</li>
+</ul>
 </section><section>
 <h1 id="domain-analysis-ubiquitous-language">Domain Analysis: ubiquitous language</h1>
 </section><section>
 <h1 id="design">Design</h1>
+<img src="./images/full-architecture.png">
 </section><section>
 <h1 id="devops-repository-management">DevOps: repository management</h1>
+<ul>
+<li>We created a GitHub organization: RustFields</li>
+<li>Each project has its repository</li>
+<li>The team agreed on working with Git Flow workflow</li>
+<li>Before merging code on the main/master branch, feature branches need to be approved by other team members using the <code>Pull Request</code> service</li>
+<li>To favor a linear history we opted to use the <code>rebase</code> method for merging feature branches</li>
+</ul>
 </section><section>
 <h1 id="devops-continuous-integration">DevOps: continuous integration</h1>
+<ul>
+<li>The team decided to use the GitHub Actions service for the CI/CD</li>
+<li>All projects have a common workflow called <code>dispatcher</code>, which is used as a filter to disable the branch builds for some branches</li>
+<li>Each project has its specific workflow based on the build systems, languages and targets platform</li>
+</ul>
+</section><section>
+<h1 id="devops-continuous-integration-1">DevOps: continuous integration</h1>
+<p>All workflows have the following common jobs after the <code>dispatcher</code>:</p>
+<p>Run Tests =&gt; Test Release =&gt; Release =&gt; Success</p>
 </section><section>
 <h1 id="devops-versioning-and-releasing">DevOps: versioning and releasing</h1>
+<ul>
+<li>The team adopted the <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional-commit convention</a></li>
+<li>To ensure that the commits made are conformant to the required pattern, the team used <code>Git Hooks</code></li>
+<li>Thanks to the use of <a href="https://github.com/semantic-release/semantic-release">Semantic Release</a> it was possible to automate all the versioning and releasing work</li>
+</ul>
+</section><section>
+<h1 id="tools">Tools</h1>
+<img src="./images/cargo.png">
+<img src="./images/github.png">
+<img src="./images/gradle.png">
+<img src="./images/mergify.png">
+<img src="./images/renovate.png">
+<img src="./images/sbt.png">
+<img src="./images/scalatest.png">
+<img src="./images/semantic-release.png">
 </section><section>
 <h1 id="license">License</h1>
+<p>Each project is licensed under Apache License 2.0, which is the original license of ScaFi</p>
+<img src="./images/apache-license.png">
 </section>
 
   
