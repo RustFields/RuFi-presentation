@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "custom-theme.css",
-	"sourceRoot": "/home/runner/work/Rustfields-presentation/Rustfields-presentation",
+	"sourceRoot": "/home/runner/work/RuFi-presentation/RuFi-presentation",
 	"sources": [
 		"assets/custom-theme.scss",
 		"themes/reveal-hugo/assets/reveal-js/dist/theme/template/mixins.scss",
