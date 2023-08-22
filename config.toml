@@ -1,6 +1,6 @@
-baseURL = "https://angelacorte.github.io/Rustfields-presentation/"
+baseURL = "https://rustfields.github.io//RuFi-presentation/"
 languageCode = "en-us"
-title = "ScaRLib presentation for LSS course"
+title = "Rust Fields"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"
